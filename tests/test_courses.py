@@ -1,5 +1,7 @@
 from playwright.sync_api import sync_playwright, expect
 
+import pytest
+
 url_for_registration = "https://nikita-filonov.github.io/qa-automation-engineer-ui-course/#/auth/registration"
 url_for_courses = "https://nikita-filonov.github.io/qa-automation-engineer-ui-course/#/courses"
 
@@ -12,6 +14,8 @@ there_is_not_result_text = "There is no results"
 results_text = "Results from the load test pipeline will be displayed here"
 
 
+@pytest.mark.courses
+@pytest.mark.regression
 def test_empty_courses_list():
     with sync_playwright() as playwright:
         browser = playwright.chromium.launch(headless=False)
