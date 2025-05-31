@@ -12,6 +12,7 @@ password = "password"
 @pytest.mark.registration
 def test_successful_registration(registration_page: RegistrationPage, dashboard_page: DashboardPage):
     registration_page.visit(url)
-    registration_page.fill_registration_form(email=email, username=username, password=password)
+    registration_page.registration_form.fill_registration_form(email=email, username=username, password=password)
+    registration_page.registration_form.check_visible(email=email, username=username, password=password)
     registration_page.click_registration_button()
-    dashboard_page.check_dashboard_title()
+    dashboard_page.sidebar.check_visible()
