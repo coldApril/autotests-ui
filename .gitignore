@@ -194,3 +194,5 @@ cython_debug/
 .cursorindexingignore
 browser-state.json
 allure-results/
+videos/
+*.zip
